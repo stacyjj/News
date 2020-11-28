@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 $content-margin: 2% 5%;
-$padding-top: 2%;
-$padding-bottom: 5%;
 $container-align: center;
+$padding-top: 2%;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -11,15 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: $content-margin;
 }
 
-.align-top {
-    padding-top: $padding-top;
-}
-
-.align-bottom {
-    padding-bottom: $padding-bottom;
-}
-
-.image-align{
+.image-align {
     padding-top: $padding-top;
     margin: $content-margin;
     justify-content: $container-align;

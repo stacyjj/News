@@ -135,6 +135,7 @@ export class LandingPageComponent implements OnInit {
         this.searchArticle(articles);    
       });    
     }  
+    
   }
 
   searchArticle(searchData){

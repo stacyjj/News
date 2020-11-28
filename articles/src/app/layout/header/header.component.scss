@@ -1,0 +1,16 @@
+$header-background-color: rgb(187, 42, 42);
+$header-height: 250px;
+$header-align: center;
+$header-display: flex;
+
+
+.header{
+    background-color: $header-background-color;
+    height: $header-height;
+}
+
+.header-logo {
+    align-items: $header-align;
+    display: $header-display;
+    justify-content: $header-align;
+}

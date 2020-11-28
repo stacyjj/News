@@ -9,8 +9,8 @@ export class NewsApiService {
 
   constructor(private _http:HttpClient) { }
 
-  getNewsArticles(searchKey,searchDate){
-    return this._http.get(environment.newsURL  + searchKey + '&from=' + searchDate + '&sortBy=publishedAt' + '&apiKey=' + environment.apiKey,
+  getNewsArticles(searchData){
+    return this._http.get(environment.newsURL  + searchData.searchKey + '&from=' + searchData.searchDate + '&sortBy=publishedAt' + '&apiKey=' + environment.apiKey,
     {observe:'body'
     });
   }

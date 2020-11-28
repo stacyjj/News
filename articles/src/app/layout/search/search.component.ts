@@ -6,7 +6,6 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import * as _moment from 'moment';
 import { Moment} from 'moment';
 
-
 const moment = _moment;
 
 export const DATE_FORMATS = {

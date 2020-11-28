@@ -8,16 +8,9 @@ import { NewsApiService } from 'src/app/core/service/news-api.service';
 })
 export class AppComponent implements OnInit{
   
-  articleSet = null;
-
-  constructor(private _service: NewsApiService) {}
+  constructor() {}
 
   ngOnInit(): void{
-    this._service.getNewsArticles(null,null).subscribe(
-      articleData => {
-        this.articleSet = articleData;
-      },error => {
   
-      });
   }
 }

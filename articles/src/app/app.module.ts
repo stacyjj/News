@@ -12,6 +12,12 @@ import { HeaderComponent } from './layout/header/header.component';
 import { LandingPageComponent } from './layout/landing-page/landing-page.component';
 import { ErrorPageComponent } from './layout/error-page/error-page.component';
 import { SearchComponent } from './layout/search/search.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component: LandingPageComponent },
+  { path: 'error', component: ErrorPageComponent }
+];
 
 @NgModule({
   declarations: [
@@ -27,7 +33,8 @@ import { SearchComponent } from './layout/search/search.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:NewsInterceptor, multi:true},

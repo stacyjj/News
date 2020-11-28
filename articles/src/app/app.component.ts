@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   constructor(private _service: NewsApiService) {}
 
   ngOnInit(): void{
-    this._service.getNewsArticles('dog','2020-10-25').subscribe(
+    this._service.getNewsArticles(null,null).subscribe(
       articleData => {
         this.articleSet = articleData;
       },error => {

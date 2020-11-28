@@ -9,7 +9,7 @@ export class NewsInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if(request.method === 'GET' && request.url.indexOf(environment.newsURL +'everything?q=') > -1) {
+    if(request.method === 'GET' && request.url.indexOf(environment.newsURL) > -1) {
       return next.handle(request);
     }
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsApiService } from 'src/app/core/service/news-api.service';
+import { NewsApiService } from 'src/app/core/service/news-api/news-api.service';
+import {EventEmitterService} from 'src/app/core/service/common/event-emitter.service';
 import * as _moment from 'moment';
 import { Router } from '@angular/router'
 
@@ -123,10 +124,17 @@ export class LandingPageComponent implements OnInit {
    }
 ];
 
-  constructor(private _service: NewsApiService, private router : Router) { }
+  constructor(private _service: NewsApiService, private router : Router, private eventEmitterService: EventEmitterService) { }
 
   ngOnInit(): void {
     this.searchArticle(this.searchData);
+
+    if (this.eventEmitterService.subsVar == undefined) {    
+      this.eventEmitterService.subsVar = this.eventEmitterService.invokeGetArticaltion.subscribe(
+        (articles) => {    
+        this.searchArticle(articles);    
+      });    
+    }  
   }
 
   searchArticle(searchData){

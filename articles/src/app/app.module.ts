@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { NewsInterceptor } from './core/service/news.interceptor';
+import { NewsInterceptor } from './core/service/news-api/news.interceptor';
 import { HeaderComponent } from './layout/header/header.component';
 import { LandingPageComponent } from './layout/landing-page/landing-page.component';
 import { ErrorPageComponent } from './layout/error-page/error-page.component';

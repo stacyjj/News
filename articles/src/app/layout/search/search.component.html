@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px" class="search" [formGroup]="searchArtistForm">
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px" class="search" [formGroup]="searchArticleForm">
     <div fxFlex="80%">
         <mat-form-field appearance="outline" fxFlex>
             <mat-label>Search</mat-label>
@@ -17,6 +17,6 @@
 </div>
 <div fxLayout="row" fxLayoutAlign="center">
     <div fxFlex="20%" fxFlex.xs="33%">
-        <button mat-raised-button fxFlex><b>Search</b></button>
+        <button mat-raised-button fxFlex (click)="articleSelection()"><b>Search</b></button>
     </div>
 </div>

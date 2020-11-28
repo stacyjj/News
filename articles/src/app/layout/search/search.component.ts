@@ -3,6 +3,7 @@ import {FormGroup, FormControl} from '@angular/forms';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
+import {EventEmitterService} from 'src/app/core/service/common/event-emitter.service';
 import * as _moment from 'moment';
 import { Moment} from 'moment';
 
@@ -31,32 +32,37 @@ export const DATE_FORMATS = {
 })
 export class SearchComponent implements OnInit {
 
-  searchArtistForm: FormGroup;
+  searchArticleForm: FormGroup;
+  searchData = null;
 
-  constructor() { }
+  constructor(private eventEmitterService: EventEmitterService) { }
 
   ngOnInit(): void {
-    this.searchArtistForm = new FormGroup({
+    this.searchArticleForm = new FormGroup({
       searchKey: new FormControl({value: '', disabled: false}),
       date: new FormControl({value: moment(), disabled: false})
     });
   }
 
   yearSelected(normalizedYear: Moment) {
-    const yearValue = this.searchArtistForm.get('date').value;
+    const yearValue = this.searchArticleForm.get('date').value;
     yearValue.year(normalizedYear.year());
-    this.searchArtistForm.controls.date.setValue(yearValue);
+    this.searchArticleForm.controls.date.setValue(yearValue);
   }
 
   monthSelected(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
-    const monthValue = this.searchArtistForm.get('date').value;
+    const monthValue = this.searchArticleForm.get('date').value;
     monthValue.month(normalizedMonth.month());
-    this.searchArtistForm.controls.date.setValue(monthValue);
+    this.searchArticleForm.controls.date.setValue(monthValue);
     datepicker.close();
   }
 
-  search(searchData){
-
-  }
+  articleSelection(){    
+    this.searchData = {
+      searchKey:this.searchArticleForm.get('searchKey').value?this.searchArticleForm.get('searchKey').value : null,
+      searchDate:moment(this.searchArticleForm.get('date').value).format('YYYY-MM-DD')
+    }
+    this.eventEmitterService.getArticle(this.searchData);    
+  } 
 
 }

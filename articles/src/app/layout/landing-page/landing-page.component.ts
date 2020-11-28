@@ -139,6 +139,7 @@ export class LandingPageComponent implements OnInit {
 
   searchArticle(searchData){
     this.pageLoading = false;
+    this.articleSet = [];
     this._service.getNewsArticles(searchData).subscribe(
       articleData => {
         this.articles = articleData;

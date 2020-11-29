@@ -33,7 +33,6 @@ export class LandingPageComponent implements OnInit {
         this.searchArticle(articles);    
       });    
     }  
-    
   }
 
   searchArticle(searchData){
@@ -58,7 +57,7 @@ export class LandingPageComponent implements OnInit {
         }else{
           this.pageLoading = false;
         }
-      },error => {
+    },error => {
         this.pageLoading = false;
         this.error();
       });
